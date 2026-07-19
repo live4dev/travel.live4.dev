@@ -37,6 +37,8 @@ jobs:
 
       - name: Build Altai story
         working-directory: altai_2026
+        env:
+          VITE_YANDEX_MAPS_API_KEY: ${{ secrets.YANDEX_MAPS_API_KEY }}
         run: npm run build
 
       - name: Prepare Pages artifact
