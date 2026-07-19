@@ -5,6 +5,7 @@ import type { LngLat, Margin, YMap, YMapFeature, YMapMarker } from "@yandex/ymap
 import type { Feature, FeatureCollection, LineString } from "geojson";
 import scenesData from "../content/scenes.json";
 import tripData from "../content/trip.json";
+import { springIsSettled, stepCriticalSpring } from "./motion";
 import { clamp, lerp, sceneIndexForStep, shortestAngle, storyFrameAt } from "./story";
 import type { PhotoManifest, PhotoManifestItem, Scene, StoryFrame, Trip } from "./types";
 import {
@@ -169,6 +170,7 @@ async function start(): Promise<void> {
       <div class="map-vignette"></div>
       <div class="atmosphere" id="atmosphere"></div>
       <div class="map-message" id="map-message" role="status" hidden>Топографическая карта недоступна — маршрут и история продолжают работать.</div>
+      <a class="route-attribution" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">Маршрут © OpenStreetMap</a>
     </div>
 
     <header class="topbar">
@@ -228,6 +230,14 @@ async function start(): Promise<void> {
   let anchors: number[] = [];
   let targetScrollPosition = window.scrollY + window.innerHeight * 0.5;
   let renderScrollPosition = targetScrollPosition;
+  let renderScrollVelocity = 0;
+  let renderRouteProgress = scenes[0]?.routeProgress ?? 0;
+  let renderRouteProgressVelocity = 0;
+  let routeProgressInitialized = false;
+  let renderHeading = 0;
+  let renderHeadingVelocity = 0;
+  let headingInitialized = false;
+  let previousFrameTime = 0;
   let animationFrame = 0;
 
   const bounds = routeFeature.geometry.coordinates.reduce(
@@ -269,6 +279,13 @@ async function start(): Promise<void> {
   const cameraMargin = (side: Scene["camera"]["contentSide"]): Margin => window.innerWidth < 760
     ? [70, 18, Math.round(window.innerHeight * 0.35), 18]
     : [70, side === "right" ? Math.round(window.innerWidth * 0.38) : 30, 40, side === "left" ? Math.round(window.innerWidth * 0.38) : 30];
+
+  const interpolateMargin = (from: Margin, to: Margin, amount: number): Margin => [
+    lerp(from[0], to[0], amount),
+    lerp(from[1], to[1], amount),
+    lerp(from[2], to[2], amount),
+    lerp(from[3], to[3], amount),
+  ];
 
   const initializeYandexMap = async (): Promise<void> => {
     const apiKey = (import.meta.env.VITE_YANDEX_MAPS_API_KEY as string | undefined)?.trim();
@@ -405,13 +422,52 @@ async function start(): Promise<void> {
     pictures.forEach((picture, index) => picture.classList.toggle("is-current", index === currentPhoto));
   };
 
-  const renderMap = (frame: StoryFrame): void => {
-    const traveledKm = routeLengthKm * frame.routeProgress;
+  const renderMap = (frame: StoryFrame, deltaSeconds: number): boolean => {
+    if (!routeProgressInitialized || reducedMotion.matches) {
+      renderRouteProgress = frame.routeProgress;
+      renderRouteProgressVelocity = 0;
+      routeProgressInitialized = true;
+    } else {
+      const nextRouteProgress = stepCriticalSpring(
+        { value: renderRouteProgress, velocity: renderRouteProgressVelocity },
+        frame.routeProgress,
+        deltaSeconds,
+        0.18,
+      );
+      renderRouteProgress = clamp(nextRouteProgress.value);
+      renderRouteProgressVelocity = renderRouteProgress === nextRouteProgress.value ? nextRouteProgress.velocity : 0;
+      const clampedRouteState = { value: renderRouteProgress, velocity: renderRouteProgressVelocity };
+      if (springIsSettled(clampedRouteState, frame.routeProgress, 0.0000005, 0.000002)) {
+        renderRouteProgress = frame.routeProgress;
+        renderRouteProgressVelocity = 0;
+      }
+    }
+
+    const traveledKm = routeLengthKm * renderRouteProgress;
     const routePoint = along(routeLine, traveledKm, { units: "kilometers" });
-    const headingPoint = along(routeLine, Math.min(routeLengthKm, traveledKm + 0.35), { units: "kilometers" });
-    const tailPoint = along(routeLine, Math.max(0, traveledKm - 0.35), { units: "kilometers" });
-    const heading = bearing(tailPoint, headingPoint);
-    const markerRotation = routeBearingToMarkerRotation(heading);
+    const headingPoint = along(routeLine, Math.min(routeLengthKm, traveledKm + 0.55), { units: "kilometers" });
+    const tailPoint = along(routeLine, Math.max(0, traveledKm - 0.55), { units: "kilometers" });
+    const targetHeading = bearing(tailPoint, headingPoint);
+    if (!headingInitialized || reducedMotion.matches) {
+      renderHeading = targetHeading;
+      renderHeadingVelocity = 0;
+      headingInitialized = true;
+    } else {
+      const unwrappedTarget = shortestAngle(renderHeading, targetHeading);
+      const nextHeading = stepCriticalSpring(
+        { value: renderHeading, velocity: renderHeadingVelocity },
+        unwrappedTarget,
+        deltaSeconds,
+        0.28,
+      );
+      renderHeading = nextHeading.value;
+      renderHeadingVelocity = nextHeading.velocity;
+      if (springIsSettled(nextHeading, unwrappedTarget, 0.08, 0.8)) {
+        renderHeading = unwrappedTarget;
+        renderHeadingVelocity = 0;
+      }
+    }
+    const markerRotation = routeBearingToMarkerRotation(renderHeading);
     const coordinates = routePoint.geometry.coordinates as [number, number];
     const lowerScene = scenes[frame.lowerIndex] ?? scenes[0]!;
     const upperScene = scenes[frame.upperIndex] ?? lowerScene;
@@ -422,7 +478,11 @@ async function start(): Promise<void> {
     };
 
     if (mapReady && map && camperMarker && camperMarkerElement) {
-      const side = frame.mix < 0.5 ? lowerScene.camera.contentSide : upperScene.camera.contentSide;
+      const margin = interpolateMargin(
+        cameraMargin(lowerScene.camera.contentSide),
+        cameraMargin(upperScene.camera.contentSide),
+        frame.mix,
+      );
       camperMarker.update({ coordinates });
       camperMarkerElement.style.setProperty("--camper-heading", `${markerRotation}deg`);
       map.update({
@@ -431,47 +491,92 @@ async function start(): Promise<void> {
           azimuth: bearingToRadians(camera.bearing),
           tilt: degreesToRadians(Math.min(50, Math.max(0, camera.pitch))),
         },
-        margin: cameraMargin(side),
+        margin,
       });
-      if (routeProgressFeature && Math.abs(frame.routeProgress - lastProgressDrawn) > 0.0006) {
+      if (routeProgressFeature && Math.abs(renderRouteProgress - lastProgressDrawn) > 0.00012) {
         routeProgressFeature.update({
           geometry: {
             type: "LineString",
-            coordinates: toLineCoordinates(completedFeature(frame.routeProgress).geometry.coordinates),
+            coordinates: toLineCoordinates(completedFeature(renderRouteProgress).geometry.coordinates),
           },
         });
-        lastProgressDrawn = frame.routeProgress;
+        lastProgressDrawn = renderRouteProgress;
       }
     }
 
     if (usingFallback || !mapReady) {
-      const complete = completedFeature(frame.routeProgress);
+      const complete = completedFeature(renderRouteProgress);
       fallbackProgress.setAttribute("d", pathFromCoordinates(complete.geometry.coordinates));
       const [x, y] = projectFallback(coordinates);
-      fallbackCamper.style.left = `${x / 10}%`;
-      fallbackCamper.style.top = `${y / 10}%`;
-      fallbackCamper.style.transform = `translate(-50%, -50%) rotate(${markerRotation}deg)`;
+      fallbackCamper.style.setProperty("--fallback-camper-x", `${x / 10}vw`);
+      fallbackCamper.style.setProperty("--fallback-camper-y", `${y / 10}dvh`);
+      fallbackCamper.style.setProperty("--fallback-camper-heading", `${markerRotation}deg`);
     }
+
+    const routeMoving = !springIsSettled(
+      { value: renderRouteProgress, velocity: renderRouteProgressVelocity },
+      frame.routeProgress,
+      0.0000005,
+      0.000002,
+    );
+    const finalHeadingTarget = shortestAngle(renderHeading, targetHeading);
+    const headingMoving = !springIsSettled(
+      { value: renderHeading, velocity: renderHeadingVelocity },
+      finalHeadingTarget,
+      0.08,
+      0.8,
+    );
+    return routeMoving || headingMoving;
   };
 
-  const render = (): void => {
+  const render = (deltaSeconds: number): boolean => {
     const frame = storyFrameAt(scenes, anchors, renderScrollPosition);
     updateActiveScene(frame.activeIndex);
     updatePhotoSequence(frame);
-    renderMap(frame);
+    const headingMoving = renderMap(frame, deltaSeconds);
     const start = anchors[0] ?? 0;
     const end = anchors.at(-1) ?? start + 1;
     const pageProgress = clamp((renderScrollPosition - start) / Math.max(1, end - start));
     progressFill.style.transform = `scaleX(${pageProgress})`;
     if (heroBackdrop) heroBackdrop.style.opacity = String(clamp(1 - (frame.lowerIndex + frame.mix) * 0.92));
+    return headingMoving;
   };
 
-  const tick = (): void => {
+  const tick = (frameTime: number): void => {
     animationFrame = 0;
-    const motion = reducedMotion.matches ? 1 : 0.13;
-    renderScrollPosition += (targetScrollPosition - renderScrollPosition) * motion;
-    render();
-    if (Math.abs(targetScrollPosition - renderScrollPosition) > 0.35) animationFrame = requestAnimationFrame(tick);
+    const deltaSeconds = previousFrameTime === 0 ? 1 / 60 : Math.min(0.05, (frameTime - previousFrameTime) / 1000);
+    previousFrameTime = frameTime;
+
+    if (reducedMotion.matches) {
+      renderScrollPosition = targetScrollPosition;
+      renderScrollVelocity = 0;
+    } else {
+      const nextScroll = stepCriticalSpring(
+        { value: renderScrollPosition, velocity: renderScrollVelocity },
+        targetScrollPosition,
+        deltaSeconds,
+        0.14,
+      );
+      renderScrollPosition = nextScroll.value;
+      renderScrollVelocity = nextScroll.velocity;
+    }
+
+    const scrollSettled = springIsSettled(
+      { value: renderScrollPosition, velocity: renderScrollVelocity },
+      targetScrollPosition,
+      0.25,
+      2,
+    );
+    if (scrollSettled) {
+      renderScrollPosition = targetScrollPosition;
+      renderScrollVelocity = 0;
+    }
+    const headingMoving = render(deltaSeconds);
+    if (!scrollSettled || headingMoving) {
+      animationFrame = requestAnimationFrame(tick);
+    } else {
+      previousFrameTime = 0;
+    }
   };
 
   const requestRender = (): void => {
@@ -525,7 +630,10 @@ async function start(): Promise<void> {
     measure();
     targetScrollPosition = window.scrollY + window.innerHeight * 0.5;
     renderScrollPosition = targetScrollPosition;
-    render();
+    renderScrollVelocity = 0;
+    routeProgressInitialized = false;
+    headingInitialized = false;
+    render(0);
     loadingScreen?.classList.add("is-hidden");
   }, 80);
 }

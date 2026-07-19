@@ -3,7 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import exifr from "exifr";
 import sharp from "sharp";
-import { length, lineString, nearestPointOnLine, point } from "@turf/turf";
+import { length, lineSliceAlong, lineString, nearestPointOnLine, point } from "@turf/turf";
 import type { Feature, LineString } from "geojson";
 import type { PhotoManifest, PhotoManifestItem, Scene, Trip } from "../src/types";
 
@@ -31,6 +31,7 @@ const manifestPath = path.join(projectRoot, "public", "data", "photo-manifest.js
 const reportPath = path.join(projectRoot, "content", "photo-report.json");
 const supportedExtensions = new Set([".jpg", ".jpeg", ".png", ".webp", ".heic", ".heif"]);
 const targetWidths = [480, 960, 1600];
+const routeOccurrenceSlackKm = 0.25;
 
 const readJson = async <T>(relativePath: string): Promise<T> =>
   JSON.parse(await fs.readFile(path.join(projectRoot, relativePath), "utf8")) as T;
@@ -63,6 +64,15 @@ async function main(): Promise<void> {
   if (!route || route.geometry.type !== "LineString") throw new Error("route.geojson должен содержать LineString");
   const routeLine = lineString(route.geometry.coordinates);
   const routeLengthKm = length(routeLine, { units: "kilometers" });
+  const scenesById = new Map(scenes.map((scene) => [scene.id, scene]));
+  const routeLegs = scenes.slice(0, -1).map((scene, index) => {
+    const startKm = routeLengthKm * scene.routeProgress;
+    const endKm = routeLengthKm * scenes[index + 1]!.routeProgress;
+    return {
+      startKm,
+      line: lineSliceAlong(routeLine, startKm, endKm, { units: "kilometers" }),
+    };
+  });
 
   const entries = (await fs.readdir(sourceDirectory))
     .filter((entry) => supportedExtensions.has(path.extname(entry).toLowerCase()))
@@ -98,11 +108,26 @@ async function main(): Promise<void> {
     let distanceFromRouteKm: number | null = null;
     let routeProgress: number | null = null;
     if (coordinates) {
-      const nearest = nearestPointOnLine(routeLine, point(coordinates), { units: "kilometers" });
-      distanceFromRouteKm = Number(nearest.properties.dist ?? 0);
-      const location = Number(nearest.properties.location ?? 0);
-      // Turf returns location in the requested distance unit; normalize against full route length.
-      routeProgress = Math.min(1, Math.max(0, location / routeLengthKm));
+      const preferredProgress = override.sceneId ? scenesById.get(override.sceneId)?.routeProgress : undefined;
+      const candidates = routeLegs.map((leg) => {
+        const nearest = nearestPointOnLine(leg.line, point(coordinates), { units: "kilometers" });
+        const distanceKm = Number(nearest.properties.dist ?? 0);
+        const locationKm = leg.startKm + Number(nearest.properties.location ?? 0);
+        return {
+          distanceKm,
+          progress: Math.min(1, Math.max(0, locationKm / routeLengthKm)),
+        };
+      });
+      const minimumDistanceKm = candidates.reduce((minimum, candidate) => Math.min(minimum, candidate.distanceKm), Infinity);
+      const nearbyCandidates = candidates.filter((candidate) => candidate.distanceKm <= minimumDistanceKm + routeOccurrenceSlackKm);
+      const nearest = nearbyCandidates.reduce((best, candidate) => {
+        if (preferredProgress === undefined) return candidate.distanceKm < best.distanceKm ? candidate : best;
+        const bestDifference = Math.abs(best.progress - preferredProgress);
+        const candidateDifference = Math.abs(candidate.progress - preferredProgress);
+        return candidateDifference < bestDifference ? candidate : best;
+      });
+      distanceFromRouteKm = nearest.distanceKm;
+      routeProgress = nearest.progress;
     } else {
       missingGps.push(id);
     }

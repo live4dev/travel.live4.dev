@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "npm run photos && npm run validate-content && npm run typecheck && vite build",
     "preview": "vite preview",
+    "route": "node --import tsx scripts/build-route.ts",
     "photos": "node --import tsx scripts/process-photos.ts",
     "validate-content": "node --import tsx scripts/validate-content.ts",
     "typecheck": "tsc --noEmit",

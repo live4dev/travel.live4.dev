@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { along, distance, length, lineString } from "@turf/turf";
 import type { FeatureCollection, LineString } from "geojson";
 import type { PhotoManifest, Scene, Trip } from "../src/types";
 
@@ -49,6 +50,16 @@ async function main(): Promise<void> {
     errors.push("route.geojson должен содержать ровно один LineString");
   } else if (feature.geometry.coordinates.length < 20) {
     errors.push("route.geojson содержит слишком мало точек");
+  } else {
+    const routeLine = lineString(feature.geometry.coordinates);
+    const routeLengthKm = length(routeLine, { units: "kilometers" });
+    scenes.forEach((scene) => {
+      const routePoint = along(routeLine, routeLengthKm * scene.routeProgress, { units: "kilometers" });
+      const distanceFromRouteKm = distance(scene.coordinates, routePoint, { units: "kilometers" });
+      if (distanceFromRouteKm > 5) {
+        errors.push(`${scene.id}: положение на маршруте отстоит от точки сцены на ${distanceFromRouteKm.toFixed(1)} км`);
+      }
+    });
   }
 
   const publishedText = JSON.stringify({ trip, scenes });
