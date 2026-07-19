@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run photos && npm run validate-content && npm run typecheck && vite build",
+    "build": "npm run validate-content && npm run typecheck && vite build",
     "preview": "vite preview",
     "route": "node --import tsx scripts/build-route.ts",
     "photos": "node --import tsx scripts/process-photos.ts",

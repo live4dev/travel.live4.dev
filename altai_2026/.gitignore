@@ -5,7 +5,5 @@ dist/
 .env.local
 /photos/
 content/photo-report.json
-public/photos/
-!public/photos/.gitkeep
 *.log
 .DS_Store
