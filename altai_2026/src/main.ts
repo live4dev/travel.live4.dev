@@ -7,7 +7,12 @@ import scenesData from "../content/scenes.json";
 import tripData from "../content/trip.json";
 import { clamp, lerp, sceneIndexForStep, shortestAngle, storyFrameAt } from "./story";
 import type { PhotoManifest, PhotoManifestItem, Scene, StoryFrame, Trip } from "./types";
-import { bearingToRadians, degreesToRadians, loadYandexMaps } from "./yandex-map";
+import {
+  bearingToRadians,
+  degreesToRadians,
+  loadYandexMaps,
+  routeBearingToMarkerRotation,
+} from "./yandex-map";
 
 const trip = tripData as Trip;
 const scenes = scenesData as Scene[];
@@ -406,6 +411,7 @@ async function start(): Promise<void> {
     const headingPoint = along(routeLine, Math.min(routeLengthKm, traveledKm + 0.35), { units: "kilometers" });
     const tailPoint = along(routeLine, Math.max(0, traveledKm - 0.35), { units: "kilometers" });
     const heading = bearing(tailPoint, headingPoint);
+    const markerRotation = routeBearingToMarkerRotation(heading);
     const coordinates = routePoint.geometry.coordinates as [number, number];
     const lowerScene = scenes[frame.lowerIndex] ?? scenes[0]!;
     const upperScene = scenes[frame.upperIndex] ?? lowerScene;
@@ -418,7 +424,7 @@ async function start(): Promise<void> {
     if (mapReady && map && camperMarker && camperMarkerElement) {
       const side = frame.mix < 0.5 ? lowerScene.camera.contentSide : upperScene.camera.contentSide;
       camperMarker.update({ coordinates });
-      camperMarkerElement.style.setProperty("--camper-heading", `${heading - camera.bearing - 90}deg`);
+      camperMarkerElement.style.setProperty("--camper-heading", `${markerRotation}deg`);
       map.update({
         location: { center: coordinates, zoom: camera.zoom },
         camera: {
@@ -444,7 +450,7 @@ async function start(): Promise<void> {
       const [x, y] = projectFallback(coordinates);
       fallbackCamper.style.left = `${x / 10}%`;
       fallbackCamper.style.top = `${y / 10}%`;
-      fallbackCamper.style.transform = `translate(-50%, -50%) rotate(${heading - 90}deg)`;
+      fallbackCamper.style.transform = `translate(-50%, -50%) rotate(${markerRotation}deg)`;
     }
   };
 

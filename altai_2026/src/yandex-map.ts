@@ -61,3 +61,8 @@ export const bearingToRadians = (degrees: number): number => {
   const normalized = ((degrees + 180) % 360 + 360) % 360 - 180;
   return degreesToRadians(normalized);
 };
+
+// The camper asset points east at 0deg. Keep its rotation in route/map
+// coordinates: YMapMarker already belongs to the map, so the camera azimuth
+// must not be applied to the marker a second time.
+export const routeBearingToMarkerRotation = (bearing: number): number => bearing - 90;
