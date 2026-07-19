@@ -1,0 +1,1145 @@
+{
+  "generatedAt": "2026-07-18T14:32:56.453Z",
+  "photos": [
+    {
+      "id": "img_4989",
+      "source": "img_4989.jpg",
+      "sceneId": "chuya-katun",
+      "order": 1,
+      "featured": true,
+      "alt": "Семья в спасательных жилетах на рафте на Катуни",
+      "capturedAt": "2026-07-13T09:32:38.000Z",
+      "coordinates": [
+        85.98580833333334,
+        51.47505833333334
+      ],
+      "distanceFromRouteKm": 0.9515968385229039,
+      "routeProgress": 0.10364465072076835,
+      "width": 2400,
+      "height": 1800,
+      "src": "./photos/img_4989-1600.webp",
+      "variants": {
+        "avif": [
+          {
+            "width": 480,
+            "src": "./photos/img_4989-480.avif"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_4989-960.avif"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_4989-1600.avif"
+          }
+        ],
+        "webp": [
+          {
+            "width": 480,
+            "src": "./photos/img_4989-480.webp"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_4989-960.webp"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_4989-1600.webp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "img_5015",
+      "source": "img_5015.jpg",
+      "sceneId": "chemal",
+      "order": 1,
+      "featured": true,
+      "alt": "Берег реки у старого здания Чемальской ГЭС",
+      "capturedAt": "2026-07-13T12:22:12.000Z",
+      "coordinates": [
+        86.00340277777778,
+        51.39127777777778
+      ],
+      "distanceFromRouteKm": 0.8918036814234943,
+      "routeProgress": 0.11532350390832152,
+      "width": 2400,
+      "height": 1800,
+      "src": "./photos/img_5015-1600.webp",
+      "variants": {
+        "avif": [
+          {
+            "width": 480,
+            "src": "./photos/img_5015-480.avif"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5015-960.avif"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5015-1600.avif"
+          }
+        ],
+        "webp": [
+          {
+            "width": 480,
+            "src": "./photos/img_5015-480.webp"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5015-960.webp"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5015-1600.webp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "img_5020",
+      "source": "img_5020.jpg",
+      "sceneId": "patmos",
+      "order": 1,
+      "featured": true,
+      "alt": "Остров Патмос и подвесной мост над Катунью",
+      "capturedAt": "2026-07-13T12:34:19.000Z",
+      "coordinates": [
+        86.0036,
+        51.39115833333333
+      ],
+      "distanceFromRouteKm": 0.907127341764291,
+      "routeProgress": 0.11532350390832152,
+      "width": 1800,
+      "height": 2400,
+      "src": "./photos/img_5020-1600.webp",
+      "variants": {
+        "avif": [
+          {
+            "width": 480,
+            "src": "./photos/img_5020-480.avif"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5020-960.avif"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5020-1600.avif"
+          }
+        ],
+        "webp": [
+          {
+            "width": 480,
+            "src": "./photos/img_5020-480.webp"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5020-960.webp"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5020-1600.webp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "img_5023",
+      "source": "img_5023.jpg",
+      "sceneId": "patmos",
+      "order": 2,
+      "featured": false,
+      "alt": "Скалы и бирюзовая Катунь в районе Патмоса",
+      "capturedAt": "2026-07-13T12:36:55.000Z",
+      "coordinates": [
+        86.0056,
+        51.39000277777778
+      ],
+      "distanceFromRouteKm": 1.0633904731624264,
+      "routeProgress": 0.11532350390832152,
+      "width": 2400,
+      "height": 1800,
+      "src": "./photos/img_5023-1600.webp",
+      "variants": {
+        "avif": [
+          {
+            "width": 480,
+            "src": "./photos/img_5023-480.avif"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5023-960.avif"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5023-1600.avif"
+          }
+        ],
+        "webp": [
+          {
+            "width": 480,
+            "src": "./photos/img_5023-480.webp"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5023-960.webp"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5023-1600.webp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "img_5031",
+      "source": "img_5031.jpg",
+      "sceneId": "kamlak",
+      "order": 1,
+      "featured": false,
+      "alt": "Дети отдыхают за столом внутри автодома",
+      "capturedAt": "2026-07-14T04:48:52.000Z",
+      "coordinates": [
+        85.67955,
+        51.62614444444444
+      ],
+      "distanceFromRouteKm": 0.2848845360244823,
+      "routeProgress": 0.057996514246962255,
+      "width": 2400,
+      "height": 1800,
+      "src": "./photos/img_5031-1600.webp",
+      "variants": {
+        "avif": [
+          {
+            "width": 480,
+            "src": "./photos/img_5031-480.avif"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5031-960.avif"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5031-1600.avif"
+          }
+        ],
+        "webp": [
+          {
+            "width": 480,
+            "src": "./photos/img_5031-480.webp"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5031-960.webp"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5031-1600.webp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "img_5069",
+      "source": "img_5069.jpg",
+      "sceneId": "chuya-katun",
+      "order": 2,
+      "featured": false,
+      "alt": "Пара на фоне Катуни и горной долины",
+      "capturedAt": "2026-07-14T10:46:39.000Z",
+      "coordinates": [
+        86.54743333333333,
+        50.567347222222224
+      ],
+      "distanceFromRouteKm": 6.921712420478804,
+      "routeProgress": 0.3991204526101029,
+      "width": 1800,
+      "height": 2400,
+      "src": "./photos/img_5069-1600.webp",
+      "variants": {
+        "avif": [
+          {
+            "width": 480,
+            "src": "./photos/img_5069-480.avif"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5069-960.avif"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5069-1600.avif"
+          }
+        ],
+        "webp": [
+          {
+            "width": 480,
+            "src": "./photos/img_5069-480.webp"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5069-960.webp"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5069-1600.webp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "img_7217",
+      "source": "img_7217.jpg",
+      "sceneId": "chuya-katun",
+      "order": 3,
+      "featured": false,
+      "alt": "Бирюзовая Катунь между скалами",
+      "capturedAt": "2026-07-14T10:45:25.000Z",
+      "coordinates": null,
+      "distanceFromRouteKm": null,
+      "routeProgress": null,
+      "width": 1800,
+      "height": 2400,
+      "src": "./photos/img_7217-1600.webp",
+      "variants": {
+        "avif": [
+          {
+            "width": 480,
+            "src": "./photos/img_7217-480.avif"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_7217-960.avif"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_7217-1600.avif"
+          }
+        ],
+        "webp": [
+          {
+            "width": 480,
+            "src": "./photos/img_7217-480.webp"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_7217-960.webp"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_7217-1600.webp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "img_5074",
+      "source": "img_5074.jpg",
+      "sceneId": "chike-taman",
+      "order": 1,
+      "featured": true,
+      "alt": "Серпантин Чуйского тракта среди гор",
+      "capturedAt": "2026-07-14T11:55:47.000Z",
+      "coordinates": [
+        86.87599166666666,
+        50.408924999999996
+      ],
+      "distanceFromRouteKm": 0.789618062567671,
+      "routeProgress": 0.44196425210986956,
+      "width": 1800,
+      "height": 2400,
+      "src": "./photos/img_5074-1600.webp",
+      "variants": {
+        "avif": [
+          {
+            "width": 480,
+            "src": "./photos/img_5074-480.avif"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5074-960.avif"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5074-1600.avif"
+          }
+        ],
+        "webp": [
+          {
+            "width": 480,
+            "src": "./photos/img_5074-480.webp"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5074-960.webp"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5074-1600.webp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "img_5100",
+      "source": "img_5100.jpg",
+      "sceneId": "aktash",
+      "order": 1,
+      "featured": true,
+      "alt": "Семья у горного водопада рядом с Акташем",
+      "capturedAt": "2026-07-14T12:47:00.000Z",
+      "coordinates": [
+        87.2192,
+        50.345463888888894
+      ],
+      "distanceFromRouteKm": 0.8300386699032712,
+      "routeProgress": 0.47716523646948744,
+      "width": 1800,
+      "height": 2400,
+      "src": "./photos/img_5100-1600.webp",
+      "variants": {
+        "avif": [
+          {
+            "width": 480,
+            "src": "./photos/img_5100-480.avif"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5100-960.avif"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5100-1600.avif"
+          }
+        ],
+        "webp": [
+          {
+            "width": 480,
+            "src": "./photos/img_5100-480.webp"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5100-960.webp"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5100-1600.webp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "img_5141",
+      "source": "img_5141.jpg",
+      "sceneId": "aktash",
+      "order": 2,
+      "featured": false,
+      "alt": "Вечер в горах у Акташа",
+      "capturedAt": "2026-07-14T12:53:42.000Z",
+      "coordinates": [
+        87.21925277777778,
+        50.34540277777778
+      ],
+      "distanceFromRouteKm": 0.8359160509111629,
+      "routeProgress": 0.47717229138591344,
+      "width": 1800,
+      "height": 2400,
+      "src": "./photos/img_5141-1600.webp",
+      "variants": {
+        "avif": [
+          {
+            "width": 480,
+            "src": "./photos/img_5141-480.avif"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5141-960.avif"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5141-1600.avif"
+          }
+        ],
+        "webp": [
+          {
+            "width": 480,
+            "src": "./photos/img_5141-480.webp"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5141-960.webp"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5141-1600.webp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "img_5147",
+      "source": "img_5147.jpg",
+      "sceneId": "aktash",
+      "order": 3,
+      "featured": false,
+      "alt": "Автодом на ночёвке у реки в Акташе",
+      "capturedAt": "2026-07-14T13:58:22.000Z",
+      "coordinates": [
+        87.6692888888889,
+        50.28039444444445
+      ],
+      "distanceFromRouteKm": 0.9864572911840431,
+      "routeProgress": 0.5224153614387728,
+      "width": 2400,
+      "height": 1800,
+      "src": "./photos/img_5147-1600.webp",
+      "variants": {
+        "avif": [
+          {
+            "width": 480,
+            "src": "./photos/img_5147-480.avif"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5147-960.avif"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5147-1600.avif"
+          }
+        ],
+        "webp": [
+          {
+            "width": 480,
+            "src": "./photos/img_5147-480.webp"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5147-960.webp"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5147-1600.webp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "img_7342",
+      "source": "img_7342.jpg",
+      "sceneId": "return-aktash",
+      "order": 1,
+      "featured": true,
+      "alt": "Вечерняя дорога по Чуйскому тракту",
+      "capturedAt": "2026-07-14T14:25:13.000Z",
+      "coordinates": null,
+      "distanceFromRouteKm": null,
+      "routeProgress": null,
+      "width": 1800,
+      "height": 2400,
+      "src": "./photos/img_7342-1600.webp",
+      "variants": {
+        "avif": [
+          {
+            "width": 480,
+            "src": "./photos/img_7342-480.avif"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_7342-960.avif"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_7342-1600.avif"
+          }
+        ],
+        "webp": [
+          {
+            "width": 480,
+            "src": "./photos/img_7342-480.webp"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_7342-960.webp"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_7342-1600.webp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "img_5154",
+      "source": "img_5154.jpg",
+      "sceneId": "kamlak-return",
+      "order": 1,
+      "featured": true,
+      "alt": "Ночная остановка автодома в горах",
+      "capturedAt": "2026-07-14T17:07:35.000Z",
+      "coordinates": [
+        87.59712222222221,
+        50.306349999999995
+      ],
+      "distanceFromRouteKm": 0.0023583472755570405,
+      "routeProgress": 0.5298554822079439,
+      "width": 1800,
+      "height": 2400,
+      "src": "./photos/img_5154-1600.webp",
+      "variants": {
+        "avif": [
+          {
+            "width": 480,
+            "src": "./photos/img_5154-480.avif"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5154-960.avif"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5154-1600.avif"
+          }
+        ],
+        "webp": [
+          {
+            "width": 480,
+            "src": "./photos/img_5154-480.webp"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5154-960.webp"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5154-1600.webp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "img_5160",
+      "source": "img_5160.jpg",
+      "sceneId": "geyser-lake",
+      "order": 1,
+      "featured": false,
+      "alt": "Солнечная поляна и ручей по дороге к Гейзерному озеру",
+      "capturedAt": "2026-07-15T02:44:13.000Z",
+      "coordinates": [
+        87.59834166666666,
+        50.30838055555555
+      ],
+      "distanceFromRouteKm": 0.24293337629378625,
+      "routeProgress": 0.5298896984300099,
+      "width": 1800,
+      "height": 2400,
+      "src": "./photos/img_5160-1600.webp",
+      "variants": {
+        "avif": [
+          {
+            "width": 480,
+            "src": "./photos/img_5160-480.avif"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5160-960.avif"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5160-1600.avif"
+          }
+        ],
+        "webp": [
+          {
+            "width": 480,
+            "src": "./photos/img_5160-480.webp"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5160-960.webp"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5160-1600.webp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "img_5167",
+      "source": "img_5167.jpg",
+      "sceneId": "geyser-lake",
+      "order": 2,
+      "featured": true,
+      "alt": "Гейзерное озеро с бирюзовыми кругами на дне",
+      "capturedAt": "2026-07-15T10:01:01.000Z",
+      "coordinates": [
+        87.67184444444445,
+        50.29222222222222
+      ],
+      "distanceFromRouteKm": 0.12381323133847556,
+      "routeProgress": 0.5375625855507031,
+      "width": 2400,
+      "height": 1800,
+      "src": "./photos/img_5167-1600.webp",
+      "variants": {
+        "avif": [
+          {
+            "width": 480,
+            "src": "./photos/img_5167-480.avif"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5167-960.avif"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5167-1600.avif"
+          }
+        ],
+        "webp": [
+          {
+            "width": 480,
+            "src": "./photos/img_5167-480.webp"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5167-960.webp"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5167-1600.webp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "img_7521",
+      "source": "img_7521.jpg",
+      "sceneId": "geyser-lake",
+      "order": 3,
+      "featured": false,
+      "alt": "Бирюзовая вода Гейзерного озера среди леса",
+      "capturedAt": "2026-07-15T06:04:36.000Z",
+      "coordinates": null,
+      "distanceFromRouteKm": null,
+      "routeProgress": null,
+      "width": 1800,
+      "height": 2400,
+      "src": "./photos/img_7521-1600.webp",
+      "variants": {
+        "avif": [
+          {
+            "width": 480,
+            "src": "./photos/img_7521-480.avif"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_7521-960.avif"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_7521-1600.avif"
+          }
+        ],
+        "webp": [
+          {
+            "width": 480,
+            "src": "./photos/img_7521-480.webp"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_7521-960.webp"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_7521-1600.webp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "img_5174",
+      "source": "img_5174.jpg",
+      "sceneId": "kurai-steppe",
+      "order": 1,
+      "featured": true,
+      "alt": "Семья на фоне Северо-Чуйского хребта",
+      "capturedAt": "2026-07-15T10:06:06.000Z",
+      "coordinates": [
+        87.67169166666667,
+        50.291666666666664
+      ],
+      "distanceFromRouteKm": 0.1862717247160365,
+      "routeProgress": 0.5375705727736327,
+      "width": 2400,
+      "height": 1800,
+      "src": "./photos/img_5174-1600.webp",
+      "variants": {
+        "avif": [
+          {
+            "width": 480,
+            "src": "./photos/img_5174-480.avif"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5174-960.avif"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5174-1600.avif"
+          }
+        ],
+        "webp": [
+          {
+            "width": 480,
+            "src": "./photos/img_5174-480.webp"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5174-960.webp"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5174-1600.webp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "img_5175",
+      "source": "img_5175.jpg",
+      "sceneId": "kurai-steppe",
+      "order": 2,
+      "featured": false,
+      "alt": "Простор Курайской степи и снежные вершины",
+      "capturedAt": "2026-07-15T10:06:13.000Z",
+      "coordinates": [
+        87.67168333333333,
+        50.29165277777778
+      ],
+      "distanceFromRouteKm": 0.18791732048400353,
+      "routeProgress": 0.5375703414754569,
+      "width": 1800,
+      "height": 2400,
+      "src": "./photos/img_5175-1600.webp",
+      "variants": {
+        "avif": [
+          {
+            "width": 480,
+            "src": "./photos/img_5175-480.avif"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5175-960.avif"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5175-1600.avif"
+          }
+        ],
+        "webp": [
+          {
+            "width": 480,
+            "src": "./photos/img_5175-480.webp"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5175-960.webp"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5175-1600.webp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "img_5181",
+      "source": "img_5181.jpg",
+      "sceneId": "kurai-steppe",
+      "order": 3,
+      "featured": false,
+      "alt": "Горы над зелёной долиной Курая",
+      "capturedAt": "2026-07-15T10:13:49.000Z",
+      "coordinates": [
+        87.66711388888889,
+        50.28935555555555
+      ],
+      "distanceFromRouteKm": 0.016823964446284003,
+      "routeProgress": 0.5223949137114162,
+      "width": 1800,
+      "height": 2400,
+      "src": "./photos/img_5181-1600.webp",
+      "variants": {
+        "avif": [
+          {
+            "width": 480,
+            "src": "./photos/img_5181-480.avif"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5181-960.avif"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5181-1600.avif"
+          }
+        ],
+        "webp": [
+          {
+            "width": 480,
+            "src": "./photos/img_5181-480.webp"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5181-960.webp"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5181-1600.webp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "img_5183",
+      "source": "img_5183.jpg",
+      "sceneId": "kurai-steppe",
+      "order": 4,
+      "featured": false,
+      "alt": "Северо-Чуйский хребет над степью",
+      "capturedAt": "2026-07-15T10:14:54.000Z",
+      "coordinates": [
+        87.66736666666667,
+        50.28921944444444
+      ],
+      "distanceFromRouteKm": 0.01181685887797051,
+      "routeProgress": 0.5224153614387728,
+      "width": 1800,
+      "height": 2400,
+      "src": "./photos/img_5183-1600.webp",
+      "variants": {
+        "avif": [
+          {
+            "width": 480,
+            "src": "./photos/img_5183-480.avif"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5183-960.avif"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5183-1600.avif"
+          }
+        ],
+        "webp": [
+          {
+            "width": 480,
+            "src": "./photos/img_5183-480.webp"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5183-960.webp"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5183-1600.webp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "img_7564",
+      "source": "img_7564.jpg",
+      "sceneId": "kurai-steppe",
+      "order": 5,
+      "featured": false,
+      "alt": "Семейная фотография в Курайской степи",
+      "capturedAt": "2026-07-15T10:14:17.000Z",
+      "coordinates": null,
+      "distanceFromRouteKm": null,
+      "routeProgress": null,
+      "width": 2400,
+      "height": 1800,
+      "src": "./photos/img_7564-1600.webp",
+      "variants": {
+        "avif": [
+          {
+            "width": 480,
+            "src": "./photos/img_7564-480.avif"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_7564-960.avif"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_7564-1600.avif"
+          }
+        ],
+        "webp": [
+          {
+            "width": 480,
+            "src": "./photos/img_7564-480.webp"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_7564-960.webp"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_7564-1600.webp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "img_5201",
+      "source": "img_5201.jpg",
+      "sceneId": "finish",
+      "order": 1,
+      "featured": true,
+      "alt": "Автодом после завершения путешествия",
+      "capturedAt": "2026-07-16T11:04:30.000Z",
+      "coordinates": [
+        85.89411944444446,
+        51.98480277777778
+      ],
+      "distanceFromRouteKm": 3.60608216939338,
+      "routeProgress": 0,
+      "width": 1800,
+      "height": 2400,
+      "src": "./photos/img_5201-1600.webp",
+      "variants": {
+        "avif": [
+          {
+            "width": 480,
+            "src": "./photos/img_5201-480.avif"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5201-960.avif"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5201-1600.avif"
+          }
+        ],
+        "webp": [
+          {
+            "width": 480,
+            "src": "./photos/img_5201-480.webp"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5201-960.webp"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5201-1600.webp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "img_5202",
+      "source": "img_5202.jpg",
+      "sceneId": "finish",
+      "order": 2,
+      "featured": false,
+      "alt": "Белый семейный автодом перед сдачей",
+      "capturedAt": "2026-07-16T11:17:43.000Z",
+      "coordinates": [
+        85.89411111111112,
+        51.98481666666667
+      ],
+      "distanceFromRouteKm": 3.6064026165193463,
+      "routeProgress": 0,
+      "width": 1800,
+      "height": 2400,
+      "src": "./photos/img_5202-1600.webp",
+      "variants": {
+        "avif": [
+          {
+            "width": 480,
+            "src": "./photos/img_5202-480.avif"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5202-960.avif"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5202-1600.avif"
+          }
+        ],
+        "webp": [
+          {
+            "width": 480,
+            "src": "./photos/img_5202-480.webp"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5202-960.webp"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5202-1600.webp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "img_5226",
+      "source": "img_5226.jpg",
+      "sceneId": "finish",
+      "order": 3,
+      "featured": false,
+      "alt": "Панорама зелёной долины Алтая после дождя",
+      "capturedAt": "2026-07-16T14:07:52.000Z",
+      "coordinates": [
+        85.76218333333334,
+        51.87728888888889
+      ],
+      "distanceFromRouteKm": 3.3698565263939764,
+      "routeProgress": 0.01852416024384938,
+      "width": 2400,
+      "height": 567,
+      "src": "./photos/img_5226-1600.webp",
+      "variants": {
+        "avif": [
+          {
+            "width": 480,
+            "src": "./photos/img_5226-480.avif"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5226-960.avif"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5226-1600.avif"
+          }
+        ],
+        "webp": [
+          {
+            "width": 480,
+            "src": "./photos/img_5226-480.webp"
+          },
+          {
+            "width": 960,
+            "src": "./photos/img_5226-960.webp"
+          },
+          {
+            "width": 1600,
+            "src": "./photos/img_5226-1600.webp"
+          }
+        ]
+      }
+    }
+  ]
+}
